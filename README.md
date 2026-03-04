@@ -49,3 +49,5 @@ README.md
 - `persistence` – database adgang (JDBC mapper)
 - `templates` – Thymeleaf HTML
 - `public` – statiske filer (css, images)
+- `docs/` - alt hvad der forklarer projektet (uml diagrammer m.m.)
+- `sql/` - database scripts
