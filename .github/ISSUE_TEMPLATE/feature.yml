@@ -1,0 +1,50 @@
+name: Feature
+description: Create a new feature or user story
+title: "Feature: "
+labels: ["feature"]
+
+body:
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature or functionality
+      placeholder: |
+        Example:
+        As a user I want to create a post so I can share a message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: routes
+    attributes:
+      label: Routes
+      description: List relevant routes
+      placeholder: |
+        GET /posts
+        POST /posts
+
+  - type: textarea
+    id: database
+    attributes:
+      label: Database changes
+      description: Describe any database changes
+      placeholder: |
+        New table: comment
+        Fields:
+        - id
+        - post_id
+        - text
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: What must be implemented for the issue to be complete?
+      placeholder: |
+        - Posts can be created via HTML form
+        - Data saved in database
+        - Redirect to /posts after creation
+    validations:
+      required: true
