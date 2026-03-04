@@ -24,6 +24,22 @@ src
       └─ public
          ├─ css
          └─ images
+
+docs
+├─ diagrams
+│  ├─ architecture.png
+│  ├─ tilstandsdiagram.png
+│  └─ er-diagram.png
+│
+└─ api
+   └─ routes.md
+
+sql
+├─ create_tables.sql
+├─ seed_data.sql
+└─ drop_tables.sql
+
+README.md
 ```
 
 ### Hvad ligger hvor
