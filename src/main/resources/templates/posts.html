@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<title>Frontpage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<h1>Message Board</h1>
+<p th:if="${msg != null}" th:text="${msg}"></p>
+<p>
+    <a th:href="@{/posts/new}">Create new post</a>
+</p>
+
+<ul>
+
+    <li th:each="post : ${posts}">
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="${post.content}"></p>
+        <img th:if="${post.image != null}"
+             th:src="@{/images/{img}(img=${post.image})}"
+             width="200"/>
+    </li>
+
+</ul>
+</body>
+</html>
