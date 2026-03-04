@@ -1,6 +1,35 @@
-# Opret nyt Javalin web projekt i IntelliJ
+# MessageBoard
 
-Dette er en Github repository template, som du kan bruge, når du skal i gang med et nyt Javalin projekt, og ikke vil bruge tid på basisopsætning af projektet. 
-Du får automatisk genereret et nyt repository med samme directory struktur og filer, som skabelonen,
+## Projektstruktur
 
-Alternativt kan du oprette IntelliJ projektet manuelt ved at følge disse instruktioner https://2sem.kursusmaterialer.dk/toolbox/javalin/setup/
+```
+src
+└─ main
+   ├─ java
+   │  └─ app
+   │     ├─ Main.java
+   │     ├─ controllers
+   │     │  └─ PostController.java
+   │     ├─ entities
+   │     │  └─ Post.java
+   │     └─ persistence
+   │        └─ PostMapper.java
+   │
+   └─ resources
+      ├─ templates
+      │  ├─ posts.html
+      │  ├─ post_new.html
+      │  └─ post_edit.html
+      │
+      └─ public
+         ├─ css
+         └─ images
+```
+
+### Hvad ligger hvor
+
+- `controllers` – routing og web requests
+- `entities` – domæneklasser
+- `persistence` – database adgang (JDBC mapper)
+- `templates` – Thymeleaf HTML
+- `public` – statiske filer (css, images)
