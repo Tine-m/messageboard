@@ -7,14 +7,13 @@
 </head>
 
 <body>
-<h1>Message Board</h1>
+<h1>Message Board Overview</h1>
 <p th:if="${msg != null}" th:text="${msg}"></p>
-<p>
+<!-- <p>
     <a th:href="@{/posts/new}">Create new post</a>
-</p>
+</p> -->
 
 <ul>
-
     <li th:each="post : ${posts}">
         <h3 th:text="${post.title}"></h3>
         <p th:text="${post.content}"></p>
@@ -22,7 +21,6 @@
              th:src="@{/images/{img}(img=${post.image})}"
              width="200"/>
     </li>
-
 </ul>
 </body>
 </html>

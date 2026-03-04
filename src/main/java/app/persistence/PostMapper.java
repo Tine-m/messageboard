@@ -28,7 +28,7 @@ public class PostMapper {
                 }
             }
         } catch (SQLException e) {
-            throw new DatabaseException("Could not get users from database", e.getMessage());
+            throw new DatabaseException("Could not retrive posts from database", e.getMessage());
         }
         return posts;
     }
