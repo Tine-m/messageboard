@@ -7,20 +7,18 @@
 </head>
 
 <body>
-<h1>Message Board oversigt</h1>
+<h1>Opret besked</h1>
 <p th:if="${msg != null}" th:text="${msg}"></p>
-<p>
+<!-- <p>
     <a th:href="@{/posts/new}">Opret ny besked</a>
-</p>
+</p> -->
 
-<ul>
-    <li th:each="post : ${posts}">
-        <h3 th:text="${post.title}"></h3>
-        <p th:text="${post.content}"></p>
-        <img th:if="${post.image != null}"
-             th:src="@{/images/{img}(img=${post.image})}"
-             width="200"/>
-    </li>
-</ul>
+<form method = "post" th:action = "@{/posts}">
+    <input type="text" name="title" placeholder="Indtast titel"/>
+    <input type="password" name="content" placeholder="Skriv tekst"/>
+    <input type="password" name="image" placeholder="Angiv navn på billed, inkl. filtype"/>
+    <button type="submit" >Opret</button>
+</form>
+
 </body>
 </html>
