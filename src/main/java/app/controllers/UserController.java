@@ -17,7 +17,15 @@ public class UserController {
     public void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("register", ctx -> ctx.render("register.html"));
         app.post("register", ctx -> registerUser(ctx, connectionPool));
-        app.get("login", ctx -> ctx.render("login.html"));
+        //app.get("login", ctx -> ctx.render("login.html"));
+        app.post("login", ctx -> login(ctx, connectionPool));
+    }
+
+    private void login(Context ctx, ConnectionPool connectionPool) {
+        // hent data fra html form
+        // kalde user mapper for at søge i database
+        // sendes til posts (redirect)
+        ctx.redirect("posts");
     }
 
     private void registerUser(Context ctx, ConnectionPool connectionPool) {

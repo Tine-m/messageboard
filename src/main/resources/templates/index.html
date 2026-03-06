@@ -9,6 +9,12 @@
 <body>
 <h1>Velkommen til Message Board</h1>
 
+<form method="post" th:action="@{/login}">
+    <input type="text" name="username" placeholder="Indtast brugernavn"/>
+    <input type="password" name="password" placeholder="Indtast password"/>
+    <button type="submit"> Logi </button>
+</form>
+
 <p><a th:href ="@{/register}">Opret bruger</a></p>
 <p><a th:href ="@{/posts}">Se beskeder</a></p>
 
