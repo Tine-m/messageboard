@@ -7,10 +7,14 @@
 </head>
 
 <body>
-<h1>Velkommen til Message Board</h1>
+<h1>Login</h1>
+<p th:if="${msg != null}" th:text="${msg}"></p>
 
-<p><a th:href ="@{/register}">Opret bruger</a></p>
-<p><a th:href ="@{/posts}">Se beskeder</a></p>
+<form method = "post" th:action = "@{/posts}">
+    <input type="text" name="brugernavn" placeholder="Indtast brugernavn"/>
+    <input type="password" name="password" placeholder="Indtast password"/>
+    <button type="submit" >Login</button>
+</form>
 
 </body>
 </html>
