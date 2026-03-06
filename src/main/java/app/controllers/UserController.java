@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 import app.persistence.UserMapper;
@@ -17,15 +18,31 @@ public class UserController {
     public void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("register", ctx -> ctx.render("register.html"));
         app.post("register", ctx -> registerUser(ctx, connectionPool));
-        //app.get("login", ctx -> ctx.render("login.html"));
         app.post("login", ctx -> login(ctx, connectionPool));
+        app.get("logout", ctx -> logout(ctx));
     }
 
     private void login(Context ctx, ConnectionPool connectionPool) {
         // hent data fra html form
         // kalde user mapper for at søge i database
         // sendes til posts (redirect)
+        String username = ctx.formParam("username");
+        String password = ctx.formParam("password");
+        try {
+            User user = mapper.login(username,password, connectionPool);
+            ctx.sessionAttribute("currentUser", user);
+            ctx.redirect("posts");
+        } catch (DatabaseException e) {
+            ctx.attribute("msg", e.getMessage());
+            ctx.render("login.html");
+        }
+
         ctx.redirect("posts");
+    }
+
+    public static void logout(Context ctx) {
+        ctx.req().getSession().invalidate();
+        ctx.redirect("/");
     }
 
     private void registerUser(Context ctx, ConnectionPool connectionPool) {
